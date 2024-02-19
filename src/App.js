@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import FoodDetail from "./components/FoodDetail";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import ShoppingCart from "./components/ShoppingCart";
 
-function App() {
+const App = () => {
+  const [query, setQuery] = useState("");
+  const [cartItems, setCartItems] = useState([]);
+  const [totalCartItems, setTotalCartItems] = useState(0);
+
+  let tempCart = localStorage.getItem("ShoppingCart");
+
+  //IF CART EXISTS, OPEN IT, ELSE CREATE EMPTY CART
+  useEffect(() => {
+    let total = 0;
+    if (typeof tempCart == "string") {
+      tempCart = JSON.parse(tempCart);
+    }
+    if (tempCart) {
+      tempCart.forEach((arrObj) => {
+        total += arrObj.quantity;
+      });
+      setCartItems(tempCart);
+      setTotalCartItems(total);
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar totalCartItems={totalCartItems} setQuery={setQuery} />
+      <Routes>
+        <Route path="/" element={<Home query={query} />} />
+        <Route
+          path="/detail"
+          element={
+            <FoodDetail
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              totalCartItems={totalCartItems}
+              setTotalCartItems={setTotalCartItems}
+            />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <ShoppingCart
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              totalCartItems={totalCartItems}
+              setTotalCartItems={setTotalCartItems}
+            />
+          }
+        />
+        <Route path="*" element={<Navigate to="/" />}></Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
