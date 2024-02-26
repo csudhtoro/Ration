@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import FoodDetail from "./components/FoodDetail";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
@@ -56,6 +57,7 @@ const App = () => {
         />
         <Route path="*" element={<Navigate to="/" />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 };
