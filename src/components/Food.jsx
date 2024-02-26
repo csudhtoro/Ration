@@ -43,7 +43,7 @@ const Food = ({ query }) => {
     <div className="max-w-[1640px] m-auto px-4 py-4">
       <div className="flex flex-col lg:flex-row justify-between pt-6">
         {/**Filter Price*/}
-        <div>
+        <div className="mx-auto">
           <p className="font-bold text-zinc-700">Filter By Price</p>
           <div className="flex justify-start max-w-[390px] w-full gap-1 lg:justify-center lg:gap-2">
             <button
@@ -109,7 +109,7 @@ const Food = ({ query }) => {
             }}
           >
             <img
-              className="w-full h-[200px] object-cover rounded-md"
+              className="w-full h-[200px] object-scale-down md:object-cover rounded-md"
               src={item.image}
               alt={item.name}
             />

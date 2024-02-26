@@ -79,22 +79,6 @@ const FoodDetail = ({
             <h1 className="title-font mb-1 text-start text-2xl font-bold text-gray-900 md:text-4xl">
               {name}
             </h1>
-
-            {/* <div className="mb-4 mt-4 flex flex-wrap justify-start gap-2">
-              {ingredients.map((item) => (
-                <div key={item.name} className="group flex relative h-fit">
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="md:h-26 h-16 group-hover:blur-sm"
-                  />
-                  <span className="group-hover:opacity-100 transition-opacity p-2 text-sm font-bold text-grey-900 rounded-md absolute left-1/2 -translate-x-1/2 translate-y-1/2 opacity-0 mx-auto w-fit">
-                    {item.name}
-                  </span>
-                </div>
-              ))}
-            </div> */}
-
             <p className="leading-relaxed">{description}</p>
             <div className="mb-5 mt-6 flex items-center justify-between border-b-2 border-gray-200 pb-5">
               <span className="title-font font-semibold text-gray-900 sm:text-xl md:text-2xl">
@@ -118,8 +102,6 @@ const FoodDetail = ({
               <button
                 className="flex rounded-md border-1 bg-green-500 px-4 py-1 text-white hover:bg-green-600 focus:outline-none sm:px-6 sm:py-2"
                 onClick={() => {
-                  // addItem(location.state.data);
-                  // setCartCount(cartCount + value);
                   handleClick(location.state.data, Number(selectedValue));
                 }}
               >
