@@ -30,7 +30,7 @@ const Food = ({ query }) => {
       data.filter((item) => {
         return searchTerm.toLowerCase() === " "
           ? setFoods(data)
-          : item.name.toLowerCase().includes(searchTerm);
+          : item.name.toLowerCase().includes(searchTerm.toLowerCase());
       })
     );
   };
