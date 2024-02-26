@@ -11,24 +11,36 @@ const Footer = () => {
           </a>
           . All Rights Reserved.
         </span>
+        <div className="mx-auto flex items-center justify-start gap-3">
+          <p className="text-[0.65rem] text-gray-600">
+            Images provided by{" "}
+            <a
+              href="https://www.unsplash.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-blue-900 font-bold">Unsplash</span>{" "}
+            </a>
+          </p>
+        </div>
         <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
-            <a href="#" className="hover:underline me-4 md:me-6">
+            <a href="/" className="hover:underline me-4 md:me-6">
               About
             </a>
           </li>
           <li>
-            <a href="#" className="hover:underline me-4 md:me-6">
+            <a href="/" className="hover:underline me-4 md:me-6">
               Privacy Policy
             </a>
           </li>
           <li>
-            <a href="#" className="hover:underline me-4 md:me-6">
+            <a href="/" className="hover:underline me-4 md:me-6">
               Licensing
             </a>
           </li>
           <li>
-            <a href="#" className="hover:underline">
+            <a href="/" className="hover:underline">
               Contact
             </a>
           </li>
