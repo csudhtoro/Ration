@@ -109,7 +109,7 @@ const Food = ({ query }) => {
             }}
           >
             <img
-              className="w-full h-[200px] object-contain md:object-cover rounded-md"
+              className="w-full h-[200px] object-cover rounded-md"
               src={item.image}
               alt={item.name}
             />
