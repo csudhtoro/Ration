@@ -46,7 +46,7 @@ const ShoppingCart = ({
   }, [localCart]);
 
   return (
-    <section className="max-w-[1640px] mx-auto  font-poppins">
+    <section className="h-screen max-w-[1640px] mx-auto  font-poppins">
       <div className="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
         <div>
           <h2 className="mb-8 text-4xl font-bold">Shopping Cart</h2>
