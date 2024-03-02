@@ -6,11 +6,7 @@ const Footer = () => {
       <div className="max-w-[1640px] m-auto px-4 py-4 w-full mx-auto p-4 md:flex md:items-center md:justify-between">
         <div className="flex flex-col justify-start items-center">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            © 2024{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
-              Ration
-            </a>
-            . All Rights Reserved.
+            © 2024. All Rights Reserved.
           </span>
           <div className="mx-auto flex items-center justify-start gap-3">
             <p className="text-[0.65rem] text-gray-600">

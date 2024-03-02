@@ -1,10 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const HeadlineCards = () => {
   return (
     <div className="max-w-[1640px] mx-auto p-4 pt-12 pb-6 grid md:grid-cols-3 gap-6">
       {/**Card */}
-      <div className="rounded-xl relative">
+      <motion.div
+        className="rounded-xl relative"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+      >
         {/**Overlay */}
         <div className="absolute w-full h-full bg-black/50 rounded-xl text-white shadow-zinc-400 shadow-md">
           <p className="font-bold text-2xl px-2 pt-4">Buy One Get One Free!</p>
@@ -18,9 +24,14 @@ const HeadlineCards = () => {
           src="https://images.unsplash.com/photo-1465911817134-741b5e473a1b?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="/"
         />
-      </div>
+      </motion.div>
       {/**Card */}
-      <div className="rounded-xl relative">
+      <motion.div
+        className="rounded-xl relative"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+      >
         {/**Overlay */}
         <div className="absolute w-full h-full bg-black/50 rounded-xl text-white shadow-zinc-400 shadow-md">
           <p className="font-bold text-2xl px-2 pt-4">New Restaurants</p>
@@ -34,9 +45,14 @@ const HeadlineCards = () => {
           src="https://images.pexels.com/photos/248444/pexels-photo-248444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="/"
         />
-      </div>
+      </motion.div>
       {/**Card */}
-      <div className="rounded-xl relative">
+      <motion.div
+        className="rounded-xl relative"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7 }}
+      >
         {/**Overlay */}
         <div className="absolute w-full h-full bg-black/50 rounded-xl text-white shadow-zinc-400 shadow-md">
           <p className="font-bold text-2xl px-2 pt-4">Any Room For Dessert?</p>
@@ -50,7 +66,7 @@ const HeadlineCards = () => {
           src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="/"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

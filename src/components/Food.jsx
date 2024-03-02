@@ -1,6 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { categories, data } from "../data/data";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100
+  },
+  animate: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.02 * index
+    }
+  })
+};
 
 const Food = ({ query }) => {
   const [foods, setFoods] = useState(data);
@@ -41,7 +56,12 @@ const Food = ({ query }) => {
 
   return (
     <div className="max-w-[1640px] m-auto px-4 py-4">
-      <div className="flex flex-col lg:flex-row justify-between pt-6">
+      <motion.div
+        className="flex flex-col lg:flex-row justify-between pt-6"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+      >
         {/**Filter Price*/}
         <div className="mx-auto">
           <p className="font-bold text-zinc-700">Filter By Price</p>
@@ -78,22 +98,29 @@ const Food = ({ query }) => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
       {/**Filter Row */}
       <div className="max-w-[1640px] m-auto px-4 py-4">
         {/**Categories */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 ">
           {categories.map((item) => (
-            <button
+            <motion.button
               key={item.id}
               className="border-0 shadow-md shadow-gray-500 hover:bg-zinc-100 rounded-lg p-4 flex justify-center items-center gap-6 cursor-pointer"
               onClick={() => {
                 item.name === "All" ? setFoods(data) : filterType(item.name);
               }}
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{
+                once: true
+              }}
+              custom={item.id}
             >
               <h2 className="font-bold sm:text-lg">{item.name}</h2>
               <img className="w-12" src={item.image} alt={item.name} />
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -101,12 +128,19 @@ const Food = ({ query }) => {
       {/**Display Foods */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
         {foods.map((item) => (
-          <div
+          <motion.div
             key={item.id}
             className="  shadow-lg rounded-md cursor-pointer"
             onClick={() => {
               navigate(`/detail`, { state: { data: item } });
             }}
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{
+              once: true
+            }}
+            custom={item.id}
           >
             <img
               className="w-full h-[200px] object-cover rounded-md"
@@ -121,7 +155,7 @@ const Food = ({ query }) => {
                 </span>
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

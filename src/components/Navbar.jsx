@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Navbar = ({ totalCartItems, setQuery }) => {
   const [nav, setNav] = useState(false);
@@ -20,7 +21,12 @@ const Navbar = ({ totalCartItems, setQuery }) => {
   const handleInput = (e) => setQuery(e.target.value);
 
   return (
-    <div className="max-w-screen ax-auto flex justify-between items-center p-4">
+    <motion.div
+      className="max-w-screen ax-auto flex justify-between items-center p-4"
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 }}
+    >
       {/* Left Side */}
       <div className="flex items-center gap-10">
         <div onClick={() => setNav(!nav)} className="cursor-pointer">
@@ -120,7 +126,7 @@ const Navbar = ({ totalCartItems, setQuery }) => {
           </ul>
         </nav>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
